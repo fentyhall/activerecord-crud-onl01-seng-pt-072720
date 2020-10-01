@@ -50,7 +50,7 @@ def can_get_size_of_the_database
 end
 
 def can_find_the_first_item_from_the_database_using_id
-  Movie.all.first
+  Movie.find_by(id: 1)
 end
 
 def can_find_by_multiple_attributes
@@ -73,14 +73,12 @@ def can_be_found_updated_and_saved
   movie = Movie.find_by(title: "Awesome Flick")
   movie.update(title: "Even Awesomer Flick")
   movie.save 
-  movie
 end
 
 def can_update_using_update_method
   # Update movie title to "Wat, huh?"
   movie = Movie.create(title: "Wat?")
   movie.update(title: "Wat, huh?")
-  movie
 end
 
 def can_update_multiple_items_at_once
@@ -95,6 +93,7 @@ def can_destroy_a_single_item
   Movie.create(title: "That One Where the Guy Kicks Another Guy Once")
   movie = Movie.find_by(title: "That One Where the Guy Kicks Another Guy Once")
   movie.destroy
+  # movie.delete
 end
 
 def can_destroy_all_items_at_once
@@ -102,4 +101,5 @@ def can_destroy_all_items_at_once
     Movie.create(title: "Movie_#{i}")
   end
   Movie.destroy_all
+  # Movie.delete_all
 end
